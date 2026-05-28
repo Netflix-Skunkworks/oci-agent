@@ -1,0 +1,45 @@
+# Smoketest orchestrator config — used by evals/smoketest/run.py to drive
+# response sampling across the 77 ACIC 2016 treatment subdirectories.
+#
+# Override any field via CLI flags (e.g. `--k 5`, `--parallel 8`).
+
+# Number of zymu_*.csv response files to sample per treatment subdirectory.
+k: 1
+
+# Seed for response sampling. Same seed + same K + same treatment subset =
+# identical (treatment, response) selection.
+seed: 42
+
+# Number of concurrent subprocesses for the orchestrator. n_jobs per run is
+# automatically capped at cpu_count() // parallel unless overridden.
+parallel: 4
+
+# Optional: comma-separated treatment indices to restrict to.
+# Leave null/absent to use all 77.
+treatments: null
+
+# evals/smoketest/judge.py — how to judge whether each (run × estimand) is
+# decision-ready before contrasting bias / RMSE / coverage / interval width.
+# Both modes produce a three-tier verdict per run, following the
+# writing-reports skill:
+#   - fully_satisfactory          all three diagnostics ✅
+#   - satisfactory_with_caveats   no ⛔, ≥1 ⚠️  (overlap / placebo)
+#   - not_satisfactory            ⛔ on covariate balance (only blocker)
+#
+#   "deterministic" — apply writing-reports rules in Python (no LLM call).
+#                     Always available. Fast and reproducible.
+#   "llm"           — call the Critic with a cheap model per run; the critic
+#                     emits `satisfaction` (three-tier). Critique cached in
+#                     <run>/critique.json so re-runs are free unless
+#                     --refresh-judgments is passed.
+#   "both"          — run both and print a det × LLM confusion matrix.
+judge:
+  mode: deterministic
+  # Anthropic model name for the LLM judge. Haiku is recommended — it is the
+  # cheapest current Claude model and stays well within the writing-reports
+  # rule set on this task.
+  llm_model: claude-haiku-4-5-20251001
+  # Number of concurrent LLM judge calls when mode is llm/both. Anthropic
+  # rate limits permitting; lower this if you see 429s. 8 cuts runtime on the
+  # 77-dataset smoketest from ~30 min serial to ~3 min.
+  llm_parallel: 8

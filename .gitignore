@@ -1,0 +1,37 @@
+# Generated analysis artifacts (re-runnable from specs)
+output/
+
+# Drafted and revised specs (re-generatable from plans via `oci-agent draft`)
+specs/
+
+# Auto-generated batch specs from evals/run_smoketest.py
+specs/smoketest/batch/
+
+# Bundled ACIC 2016 datasets (~2.5 GB) — fetched separately, see SETUP.md
+eval_datasets/
+
+# Python build & runtime artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.tox/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors
+.vscode/
+.idea/
+.DS_Store
+
+# Claude Code local settings
+.claude/
+
+.venv/
+
+# Pre-open-source audit instructions (local working file for security/secret/PII
+# review before publishing; not for the public repo).
+AUDIT

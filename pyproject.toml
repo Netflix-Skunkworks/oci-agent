@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oci-agent"
+version = "0.1.0"
+description = "Observational Causal Inference (OCI) agent — parameterizes and executes analysis notebooks under an actor-critic loop."
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = [
+    "anthropic",
+    "nbformat",
+    "nbclient",
+    "pyyaml",
+    # numpy<2 is required because econml's transitive `shap` dep references
+    # the removed `np.bool8`. Drop the upper bound once shap (or econml's
+    # pin on shap) catches up with numpy 2.x.
+    "numpy<2",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "xgboost",
+    "econml",
+    "matplotlib",
+]
+
+[project.scripts]
+oci-agent = "oci_agent.agent:main"
+
+[tool.setuptools.packages.find]
+include = ["oci_agent*"]
+exclude = ["notebooks*", "evals*", "specs*", "output*", "configs*", "plans*", "skills*", "examples*", "eval_datasets*"]

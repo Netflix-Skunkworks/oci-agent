@@ -1,0 +1,106 @@
+# Example eval spec for the econml (DRLearner) notebook.
+#
+# This file parameterizes notebooks/econml.ipynb for a single ACIC 2016
+# dataset. It maps directly to the notebook's top-level configuration cell.
+
+# ── Notebook ────────────────────────────────────────────────────────────────
+
+# Path (relative to repo root) to the analysis notebook this spec parameterizes.
+# Required by oci_agent.nb_runner and validated by oci_agent.actor.Actor.propose.
+analysis_notebook: notebooks/econml.ipynb
+
+# ── Data ────────────────────────────────────────────────────────────────────
+
+# ACIC 2016 treatment-setting index (1–77).
+acic_treatment: 1
+
+# ACIC 2016 response-file index (identifies one of the 100 replications for
+# the chosen treatment setting).
+acic_response: 336720322
+
+# Integer seed passed to XGBRegressor / XGBClassifier for reproducibility.
+seed: 1024
+
+# ── Covariates ───────────────────────────────────────────────────────────────
+
+# Subset of covariates to pass to the estimator. Defaults to all 58 raw
+# columns. Can be narrowed in later iterations if only a subset proves
+# important.
+covariates:
+  - x_1
+  - x_2
+  - x_3
+  - x_4
+  - x_5
+  - x_6
+  - x_7
+  - x_8
+  - x_9
+  - x_10
+  - x_11
+  - x_12
+  - x_13
+  - x_14
+  - x_15
+  - x_16
+  - x_17
+  - x_18
+  - x_19
+  - x_20
+  - x_21
+  - x_22
+  - x_23
+  - x_24
+  - x_25
+  - x_26
+  - x_27
+  - x_28
+  - x_29
+  - x_30
+  - x_31
+  - x_32
+  - x_33
+  - x_34
+  - x_35
+  - x_36
+  - x_37
+  - x_38
+  - x_39
+  - x_40
+  - x_41
+  - x_42
+  - x_43
+  - x_44
+  - x_45
+  - x_46
+  - x_47
+  - x_48
+  - x_49
+  - x_50
+  - x_51
+  - x_52
+  - x_53
+  - x_54
+  - x_55
+  - x_56
+  - x_57
+  - x_58
+
+# Whether to augment the 58 raw covariates with squared terms and bin-encoded
+# versions of continuous features. Useful for settings with non-linear
+# response surfaces; adds runtime.
+augment_continuous_covariates: false
+
+# ── Overlap / trimming ───────────────────────────────────────────────────────
+
+# Propensity-score threshold for the ATO population. Units with estimated
+# ps < ato_threshold or ps > (1 - ato_threshold) are excluded from the ATO
+# estimate. Must be in (0, 0.5).
+ato_threshold: 0.1
+
+# ── Estimands ────────────────────────────────────────────────────────────────
+
+# Toggle which estimands the notebook computes. At least one must be true.
+estimate_ate: true   # Average Treatment Effect (full sample)
+estimate_att: true   # Average Treatment Effect on the Treated
+estimate_ato: true   # Average Treatment Effect on the Overlap population

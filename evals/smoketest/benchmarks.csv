@@ -1,0 +1,45 @@
+competition,method,type,bias,rmse,coverage,interval_length
+diy,DR w/GBM+MDIA,DIY,-0.006,0.01,1.00,0.08
+diy,Regression Trees,DIY,0.009,0.04,1.00,0.29
+diy,Ad Hoc,DIY,-0.017,0.04,0.95,0.12
+diy,LAS Gen GAM,DIY,-0.014,0.04,0.60,0.07
+diy,VarSel NN,DIY,-0.022,0.05,0.75,0.15
+diy,MITSS,DIY,-0.057,0.09,0.45,0.07
+diy,Manual,DIY,-0.054,0.10,0.45,0.12
+diy,ProxMatch,DIY,-0.009,0.10,0.60,0.27
+diy,RBD TwoStepLM,DIY,-0.030,0.12,0.20,0.05
+diy,Calibrated IPW,DIY,-0.048,0.12,0.55,0.11
+diy,GLM-Boost,DIY,-0.067,0.31,0.10,0.09
+diy,Bayes LM,DIY,-0.080,0.31,0.15,0.08
+diy,IPTW estimator,DIY,-0.142,0.35,0.45,0.15
+diy,Weighted GP,DIY,-0.186,0.55,0.00,0.02
+diy,BART,BB,-0.009,0.02,0.65,0.04
+diy,H2O Ensemble,BB,-0.006,0.03,1.00,6.06
+diy,calCause,BB,-0.013,0.03,0.75,0.07
+diy,SL+TMLE,BB,-0.009,0.02,0.90,0.07
+diy,Tree Strat,BB,-0.021,0.04,0.95,0.17
+diy,BalanceBoost,BB,-0.018,0.04,0.85,0.15
+diy,Adj. Tree Strat,BB,-0.027,0.06,0.65,0.10
+diy,LASSO+CBPS,BB,-0.027,0.09,0.30,0.05
+diy,CBPS,BB,-0.041,0.10,1.00,0.74
+diy,teffects psmatch,BB,-0.062,0.10,0.50,0.13
+diy,teffects ra,BB,-0.056,0.11,0.45,0.10
+diy,teffects ipwra,BB,-0.056,0.11,0.55,0.10
+diy,Linear Model,BB,-0.062,0.13,0.25,0.08
+diy,MHE Algorithm,BB,-0.062,0.13,0.25,0.09
+diy,teffects ipw,BB,-0.141,0.36,0.40,0.15
+blackbox,BART,BB,-0.002,0.02,0.81,0.04
+blackbox,H2O Ensemble,BB,-0.007,0.03,1.00,6.14
+blackbox,calCause,BB,-0.003,0.03,0.82,0.07
+blackbox,TMLE,BB,-0.007,0.03,0.88,0.07
+blackbox,Tree Strat,BB,-0.022,0.05,0.87,0.16
+blackbox,BalanceBoost,BB,-0.020,0.05,0.81,0.13
+blackbox,Adj. Tree Strat,BB,-0.027,0.07,0.60,0.11
+blackbox,LASSO+CBPS,BB,-0.027,0.08,0.31,4.97
+blackbox,CBPS,BB,-0.041,0.11,1.00,0.78
+blackbox,teffects psmatch,BB,-0.043,0.11,0.47,0.13
+blackbox,teffects ra,BB,-0.042,0.11,0.38,0.10
+blackbox,teffects ipwra,BB,-0.042,0.11,0.37,0.10
+blackbox,Linear Model,BB,-0.045,0.14,0.22,0.09
+blackbox,MHE Algorithm,BB,-0.045,0.14,0.23,0.09
+blackbox,teffects ipw,BB,-0.043,0.28,0.39,0.14

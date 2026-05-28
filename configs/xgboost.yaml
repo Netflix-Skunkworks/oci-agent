@@ -1,0 +1,28 @@
+# XGBoost hyperparameters for the DRLearner nuisance models in
+# notebooks/econml.ipynb. Shared across outcome (regression) and propensity
+# (classifier) models except where called out.
+
+shared:
+  n_estimators: 2000
+  max_depth: 4
+  learning_rate: 0.03
+  subsample: 0.8
+  colsample_bytree: 0.8
+  random_state: 123
+
+# Outcome regression model (XGBRegressor).
+outcome:
+  objective: reg:squarederror
+
+# Propensity classifier (XGBClassifier).
+propensity:
+  objective: binary:logistic
+
+# Early-stopping wrappers around the base estimators.
+early_stopping:
+  validation_fraction: 0.2
+  early_stopping_rounds: 50
+  random_state: 123
+  outcome_eval_metric: rmse
+  propensity_eval_metric: logloss
+  propensity_stratify: true

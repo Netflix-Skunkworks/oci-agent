@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this software, consider citing this repository, the ACIC 2016 benchmark, and EconML."
+title: "Observational Causal Inference Agent"
+type: software
+authors:
+  - name: "Netflix, Inc."
+license: Apache-2.0
+repository-code: "https://github.com/netflix-skunkworks/oci-agent"
+version: "0.1.0"
+date-released: "2026-05-28"
+keywords:
+  - causal-inference
+  - observational-data
+  - doubly-robust
+  - DRLearner
+  - actor-critic
+  - LLM-agents
+
+references:
+  - type: article
+    title: "Automated versus do-it-yourself methods for causal inference: Lessons learned from a data challenge"
+    authors:
+      - family-names: Dorie
+        given-names: Vincent
+      - family-names: Hill
+        given-names: "Jennifer L."
+      - family-names: Shalit
+        given-names: Uri
+      - family-names: Scott
+        given-names: Marc
+      - family-names: Cervone
+        given-names: Dan
+    journal: "Statistical Science"
+    volume: 34
+    issue: 1
+    year: 2019
+    pages: "43-68"
+    doi: "10.1214/18-STS667"
+    notes: "ACIC 2016 competition reference. The 77-DGP benchmark used here is the data release from this challenge."
+
+  - type: software
+    title: "EconML: A Python Package for ML-Based Heterogeneous Treatment Effects Estimation"
+    authors:
+      - name: "Microsoft Research"
+    version: "0.x"
+    year: 2019
+    url: "https://github.com/py-why/EconML"
+    notes: "Provides the DRLearner used as the primary estimator."
