@@ -2,7 +2,7 @@
 
 ![banner](banner.png)
 
-See our [blog post](https://medium.com/@netflixtechblog/4623f0a9c5af) for additional context and motivation.
+*See our [blog post](https://medium.com/@netflixtechblog/4623f0a9c5af) for more context and motivation.*
 
 > [!WARNING]
 > This repository is a **Netflix Skunkworks project** containing a **standalone version of our oci-agent** so that OCI practitioners can review the approach, model their workflows on it, and suggest improvements.
